@@ -1,0 +1,42 @@
+Dalam model komunikasi menggunakan protokol TCP,
+terdapat dua program utama: FileServerTCP.java (Server) dan FileClientTCP.java (Klien).
+
+
+Berikut adalah penjelasan cara kedua program ini berfungsi dan cara menguji coba mereka.
+
+1. FileServerTCP.java (Server):
+Inisialisasi Server:
+Server membuka socket pada port tertentu (dalam contoh ini, port 23456) dan mulai mendengarkan koneksi
+dari Klien.
+
+Penerimaan Koneksi:
+Server terus menerima koneksi dari Klien yang ingin mengirim file.
+
+Penerimaan File:
+Server menerima nama file dan kontennya dari Klien menggunakan InputStream.
+File tersebut disimpan di direktori server.
+
+
+2. FileClientTCP.java (Klien):
+Inisialisasi Klien:
+Klien membuka socket untuk berkomunikasi dengan Server.
+
+Pengiriman Nama File dan Konten:
+Klien membaca file yang ingin dikirimkan ke Server.
+Nama file dan kontennya dikirimkan ke Server menggunakan OutputStream.
+
+
+3. Hasil Uji Coba:
+Server:
+Server akan menampilkan output bahwa ia mendengarkan pada port tertentu.
+Setiap kali ada koneksi baru, server akan mencatatnya.
+
+Klien:
+Klien akan menampilkan pesan untuk memasukkan nama file yang ingin dikirim.
+Pengiriman File:
+
+Klien membaca file yang ingin dikirim dan mengirimkan nama file dan kontennya ke Server.
+Server menerima file dan menyimpannya di direktori server.
+
+Penanganan Koneksi Multipel:
+Server dapat menangani koneksi dari banyak Klien secara bersamaan
