@@ -1,0 +1,63 @@
+Program ini mengimplementasikan model Datagram menggunakan protokol UDP untuk membuat sederhana
+chat server dan client.
+
+Berikut adalah penjelasan bagaimana program berfungsi:
+1. Server (ChatServerUDP.java):
+
+Inisialisasi Server:
+Server membuka socket pada port tertentu (dalam contoh ini, port 23456)
+dan mulai mendengarkan koneksi dari Klien.
+
+
+Penerimaan Koneksi:
+Server terus menerima paket Datagram dari Klien yang terhubung.
+
+
+Pengelolaan Klien:
+Setiap kali server menerima paket, itu memeriksa apakah Klien yang mengirimkan paket sudah terdaftar atau belum.
+Jika belum terdaftar, server menambahkannya ke daftar.
+
+
+Penerimaan dan Pengiriman Pesan:
+Server membaca pesan dari paket Datagram yang diterima dan menyebarkannya ke semua Klien yang terdaftar
+dengan memanggil fungsi broadcastMessage.
+
+
+2. Klien (ChatClientUDP.java):
+Inisialisasi Klien:
+Setiap Klien membuka socket Datagram untuk berkomunikasi dengan Server.
+
+
+Pengiriman Nama Klien:
+Setiap Klien mengirimkan nama pengguna atau identifikasi uniknya ke Server saat pertama kali terhubung.
+
+
+Penerimaan dan Tampilan Pesan:
+Setiap Klien memiliki thread untuk menerima pesan yang dikirim oleh Server dan menampilkannya di layar.
+
+
+Input dan Pengiriman Pesan:
+Klien menerima input dari pengguna dan mengirim pesan ke Server.
+Jika pengguna mengetik "exit", Klien akan keluar.
+
+
+Hasil Uji Coba:
+1. Server:
+Server akan menampilkan output bahwa ia mendengarkan pada port tertentu.
+Setiap kali ada koneksi baru, server akan mencatatnya.
+
+Klien:
+Setiap Klien akan menampilkan pesan untuk memasukkan nama atau identifikasi unik.
+Setelah terhubung, Klien akan menampilkan pesan dari Server dan dapat mengirim pesan ke Server.
+
+Pesan Disebarkan:
+Setiap pesan yang dikirimkan oleh salah satu Klien akan disebarkan ke semua Klien yang terhubung.
+Dengan kata lain, semua Klien akan melihat pesan yang dikirim oleh Klien lain.
+
+Penanganan Koneksi Multipel:
+Server dapat menangani koneksi dari banyak Klien secara bersamaan.
+Server dapat membedakan Klien satu dengan yang lain dengan menggunakan alamat IP dan port.
+
+Pengujian Keluar:
+Saat salah satu Klien mengetik "exit", Klien tersebut akan keluar dan Server akan memberitahu Klien
+yang lain bahwa Klien tersebut telah keluar.
